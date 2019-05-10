@@ -1,0 +1,4 @@
+scrapy
+goose3
+re
+pandas

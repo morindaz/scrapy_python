@@ -14,9 +14,10 @@ goose = Goose({'stopwords_class': StopWordsChinese,
 class DbSpider(scrapy.Spider):
     # 这里是爬虫名字，和项目名称不能一致
     name = 'bd'
-    #
+    # 允许的域名
     allowed_domains = list()
     search_pattern = re.compile(r'图片|百度文库|影像园')  # 不匹配的网站名称
+    #
     start_url = 'https://www.baidu.com/s?&wd={text}&pn=0'
     num = 0
     names = tuple()
