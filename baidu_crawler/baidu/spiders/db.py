@@ -50,19 +50,25 @@ class DbSpider(scrapy.Spider):
         else:
             self.num = 0
 
-    # 进行解析
+    # 进行解析，主要通过xpath插件对于网页内容进行分析
     def get_content(self, response):
         item = BaiduItem()
         name = response.meta.get('name')
+        # 对于Baike数据单独处理
         if 'baike.baidu.com' in response.url:
             text = list()
+            # 写xpath规则，提取出所需要的dom信息，现在存在在content_list（粗）里面
             content_list = response.xpath("//div[@class='content']//div[@class='para']")
             for content in content_list:
-                content_text = content.xpath(".//text()").extract()
+                # 对于xpath提取出比较粗的content_list信息进一步解析,也就是对于每个content(细)再采用一次xpath
+                # 注意这里的xpath一定要加"." 表示在先前xpath语句的基础
+                content_text = content.xpath(".//text()").extract()   # 然后调用extract()或者extract_first()
                 text.append(''.join(content_text))
         else:
             article = goose.extract(raw_html=response.text)
             text = article.cleaned_text
+        # 对于baiduitem的信息保存，保存的结构和在Item里面定义的字段保持一致
         item['name'] = name
         item['text'] = ''.join(text)
+        # 将数据yield到pipeline里面
         yield item

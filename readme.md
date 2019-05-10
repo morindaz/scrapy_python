@@ -15,7 +15,7 @@ scrapy框架，生成方法
 
 2、scrapy startproject (projectname)
 
-3、生成文件，进入projectname-spider
+3、生成文件，进入projectname-spiders文件夹
 
 执行  scrapy genspider  (spidername) +域名
 
