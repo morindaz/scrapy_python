@@ -1,0 +1,155 @@
+2019-05-10 13:22:53 [fake_useragent] WARNING: Error occurred during loading data. Trying to use cache server https://fake-useragent.herokuapp.com/browsers/0.1.11
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/urllib/request.py", line 1318, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/Users/zakj/anaconda3/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Users/zakj/anaconda3/lib/python3.6/http/client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Users/zakj/anaconda3/lib/python3.6/http/client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Users/zakj/anaconda3/lib/python3.6/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/Users/zakj/anaconda3/lib/python3.6/http/client.py", line 964, in send
+    self.connect()
+  File "/Users/zakj/anaconda3/lib/python3.6/http/client.py", line 1392, in connect
+    super().connect()
+  File "/Users/zakj/anaconda3/lib/python3.6/http/client.py", line 936, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/Users/zakj/anaconda3/lib/python3.6/socket.py", line 724, in create_connection
+    raise err
+  File "/Users/zakj/anaconda3/lib/python3.6/socket.py", line 713, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/fake_useragent/utils.py", line 67, in get
+    context=context,
+  File "/Users/zakj/anaconda3/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Users/zakj/anaconda3/lib/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/Users/zakj/anaconda3/lib/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/Users/zakj/anaconda3/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/Users/zakj/anaconda3/lib/python3.6/urllib/request.py", line 1361, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/Users/zakj/anaconda3/lib/python3.6/urllib/request.py", line 1320, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error timed out>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/fake_useragent/utils.py", line 154, in load
+    for item in get_browsers(verify_ssl=verify_ssl):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/fake_useragent/utils.py", line 97, in get_browsers
+    html = get(settings.BROWSERS_STATS_PAGE, verify_ssl=verify_ssl)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/fake_useragent/utils.py", line 84, in get
+    raise FakeUserAgentError('Maximum amount of retries reached')
+fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached
+2019-05-10 13:23:17 [scrapy.core.scraper] ERROR: Error downloading <GET http://dictionary.sensagent.com/ICD-10%20%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%EF%BC%9A%E7%9A%AE%E8%82%A4%E5%92%8C%E7%9A%AE%E4%B8%8B%E7%BB%84%E7%BB%87%E7%96%BE%E7%97%85/zh-zh/>
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion.>]
+2019-05-10 13:23:31 [scrapy.core.scraper] ERROR: Error downloading <GET http://emuch.net/html/200603/204824.html>
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.ConnectionRefusedError: Connection was refused by other side: 61: Connection refused.
+2019-05-10 13:24:20 [scrapy.core.scraper] ERROR: Spider error processing <GET http://www.kanshuwangzhan.com/wenti/149890/> (referer: None)
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/Users/zakj/Documents/Hospital_program/code/crawler/baidu_crawler/baidu/spiders/db.py", line 60, in get_content
+    article = goose.extract(raw_html=response.text)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/__init__.py", line 113, in extract
+    return self.__crawl(crawl_candidate)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/__init__.py", line 140, in __crawl
+    return crawler_wrapper(self.config.parser_class, parsers, crawl_candidate)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/__init__.py", line 128, in crawler_wrapper
+    article = crawler.crawl(crawl_candidate)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/crawler.py", line 132, in crawl
+    return self.process(raw_html, parse_candidate.url, parse_candidate.link_hash)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/crawler.py", line 137, in process
+    doc = self.get_document(raw_html)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/crawler.py", line 321, in get_document
+    doc = self.parser.fromstring(raw_html)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/parsers.py", line 59, in fromstring
+    html = smart_str(html, encoding=encoding)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/utils/encoding.py", line 116, in smart_str
+    return string.encode(encoding, errors)
+LookupError: unknown encoding: uft-8
+2019-05-10 13:24:41 [scrapy.core.scraper] ERROR: Spider error processing <GET http://www.kanshuwangzhan.com/wenti/309648.html> (referer: None)
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/Users/zakj/Documents/Hospital_program/code/crawler/baidu_crawler/baidu/spiders/db.py", line 60, in get_content
+    article = goose.extract(raw_html=response.text)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/__init__.py", line 113, in extract
+    return self.__crawl(crawl_candidate)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/__init__.py", line 140, in __crawl
+    return crawler_wrapper(self.config.parser_class, parsers, crawl_candidate)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/__init__.py", line 128, in crawler_wrapper
+    article = crawler.crawl(crawl_candidate)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/crawler.py", line 132, in crawl
+    return self.process(raw_html, parse_candidate.url, parse_candidate.link_hash)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/crawler.py", line 137, in process
+    doc = self.get_document(raw_html)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/crawler.py", line 321, in get_document
+    doc = self.parser.fromstring(raw_html)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/parsers.py", line 59, in fromstring
+    html = smart_str(html, encoding=encoding)
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/goose3/utils/encoding.py", line 116, in smart_str
+    return string.encode(encoding, errors)
+LookupError: unknown encoding: uft-8
+2019-05-10 13:28:12 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.chunyuyisheng.com/pc/qa/RniZrM0W92uqLw1YZlD95A/>
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure OpenSSL.SSL.Error: [('SSL routines', 'ssl23_read', 'ssl handshake failure')]>]
+2019-05-10 13:28:55 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.ppkao.com/shiti/1531135?_t=t>
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure OpenSSL.SSL.Error: [('SSL routines', 'ssl3_read_bytes', 'ssl handshake failure')]>]
+2019-05-10 13:29:44 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.haodf.com/ask/guide-4342588746-1.html>
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure OpenSSL.SSL.Error: [('SSL routines', 'ssl3_read_bytes', 'ssl handshake failure')]>]
+2019-05-10 13:29:52 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.chunyuyisheng.com/pc/topic/202883/>
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure OpenSSL.SSL.Error: [('SSL routines', 'ssl23_read', 'ssl handshake failure')]>]
+2019-05-10 13:30:40 [scrapy.core.scraper] ERROR: Error downloading <GET http://emuch.net/html/200603/204824.html>
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.internet.error.ConnectionRefusedError: Connection was refused by other side: 61: Connection refused.
+2019-05-10 13:30:47 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.ppkao.com/tiku/shiti/3621979.html>
+Traceback (most recent call last):
+  File "/Users/zakj/anaconda3/lib/python3.6/site-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+twisted.web._newclient.ResponseNeverReceived: [<twisted.python.failure.Failure OpenSSL.SSL.Error: [('SSL routines', 'ssl3_read_bytes', 'ssl handshake failure')]>]
