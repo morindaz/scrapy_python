@@ -31,6 +31,7 @@ class DbSpider(scrapy.Spider):
 
     def get_url(self, response):
         name = response.meta.get('name')
+        # 通过某个查询词获取一系列的关联文章
         urls_path = response.xpath("//div[@id='content_left']//h3")
         for url_path in urls_path:
             url_name = ''.join(url_path.xpath(".//text()").extract()).strip()
@@ -39,13 +40,17 @@ class DbSpider(scrapy.Spider):
             if url and not name_search:
                 if url_name not in self.names:
                     try:
+                        # 通过每条文章网页的连接，调用get_content方法，提取网页内容，存储到item结构中
                         yield Request(url=url, meta={'name': name}, callback=self.get_content)
                     except Exception as e:
                         self.num -= 1
                     self.num += 1
+        # 如果第一页的数据没有到10条，需要解析下一页的数据
         if self.num < 10:
+            # 通过xpath提取下一页的url
             next_url = response.xpath("//div[@id='page']/a[last()]/@href").extract_first()
             url = response.urljoin(next_url)
+            # 通过yield提交到调度器，回调函数写self.get_url
             yield Request(url=url, callback=self.get_url, meta={'name': name})
         else:
             self.num = 0
