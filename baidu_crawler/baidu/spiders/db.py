@@ -17,7 +17,7 @@ class DbSpider(scrapy.Spider):
     # 允许的域名
     allowed_domains = list()
     search_pattern = re.compile(r'图片|百度文库|影像园')  # 不匹配的网站名称
-    #
+    # 入口url,扔到调度器，调度器扔给引擎，高大上的引擎扔给下载器，下载器进行解析和下载
     start_url = 'https://www.baidu.com/s?&wd={text}&pn=0'
     num = 0
     names = tuple()
@@ -50,6 +50,7 @@ class DbSpider(scrapy.Spider):
         else:
             self.num = 0
 
+    # 进行解析
     def get_content(self, response):
         item = BaiduItem()
         name = response.meta.get('name')

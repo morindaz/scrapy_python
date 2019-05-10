@@ -22,6 +22,13 @@ scrapy框架，生成方法
 scrapy genspider douban_spider movie.douban.com
 
 
+### Xpath
++ 使用爬虫，比较重要的一步是解析网页，Xpath是一个非常好的工具
++ 可以在谷歌的网上商店里面下载Xpath helper
++ Mac的话用commad + shift + x打开
++ 网页上chrome右键-检查，打开开发者工具，然后在html代码里面右键-copy-copy xpath
++ 复制到Xpath里面就可以看到提取到的元素了
+
 
 # Reference
 1. [spider_learn代码，最基础的例子](https://www.runoob.com/w3cnote/python-spider-intro.html)
