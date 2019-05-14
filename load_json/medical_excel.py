@@ -10,7 +10,8 @@ for col in medical.columns:
     else:
             try:
                 
-                medical[col]=medical[col].map(lambda x: ','.join(list(ix for ix in x)))
+                # medical[col]=medical[col].map(lambda x: ','.join(list(ix for ix in x)))
+                medical[col]=medical[col].map(lambda x: ','.join(x))
             except:
                 print(col)
 medical.to_excel("medical.xlsx")
