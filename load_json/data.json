@@ -1,0 +1,8 @@
+{ "index" : { "_index" : "twitter1", "_type" : "twitter1", "_id" : "1" } }
+{ "name" : "Trump","content": "American" }
+{ "index" : { "_index" : "twitter1", "_type" : "twitter1", "_id" : "2" } }
+{ "name" : "Xi","content": "China" }
+{ "index" : { "_index" : "twitter1", "_type" : "twitter1", "_id" : "3" } }
+{ "name" : "Meiyi","content": "England" }
+{ "index" : { "_index" : "twitter1", "_type" : "twitter1", "_id" : "4" } }
+{ "name" : "Makelong","content": "France" }
